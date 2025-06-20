@@ -1,0 +1,125 @@
+<div class="mt-1 mb-2">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h2 id="pay">[API]发起支付</h2>
+						<p>接口URL地址：<?php echo WEB_URL;?>/api.php?act=pay</p>
+						<p>网页URL地址：<?php echo WEB_URL;?>/pay.php?app=10000&u=123456</p>
+						<p>请求参数说明：</p>
+						<div class="table-responsive-sm">
+							<table class="table table-bordered table-centered">
+								<thead>
+									<tr>
+										<th class="text-center">字段名</th>
+										<th class="text-center">变量名</th>
+										<th class="text-center">示例值</th>
+										<th class="text-center">类型</th>
+										<th class="text-center">必填</th>
+										<th class="text-center">描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-center">应用</td>
+										<td class="text-center">app</td>
+										<td class="text-center">10000</td>
+										<td class="text-center">GET</td>
+										<td class="text-center">是</td>
+										<td class="text-center">应用ID必填参数，用于获取APP配置</td>
+									</tr>
+									<tr>
+										<td class="text-center">订单号</td>
+										<td class="text-center">order</td>
+										<td class="text-center">20200222174624120</td>
+										<td class="text-center">POST</td>
+										<td class="text-center">是</td>
+										<td class="text-center">随机生成一个订单号</td>
+									</tr>
+									<tr>
+										<td class="text-center">账号/用户状态</td>
+										<td class="text-center">account/token</td>
+										<td class="text-center">123456</td>
+										<td class="text-center">GET/POST</td>
+										<td class="text-center">否</td>
+										<td class="text-center">如果传account参数可以是账号、邮箱、手机号，<br>如果传token参数只能是用户token</td>
+									</tr>
+									<tr>
+										<td class="text-center">支付方式</td>
+										<td class="text-center">way</td>
+										<td class="text-center">ali</td>
+										<td class="text-center">POST</td>
+										<td class="text-center">是</td>
+										<td class="text-center">ali=支付宝，wx=微信，qq=QQ钱包</td>
+									</tr>
+									<tr>
+										<td class="text-center">商品ID</td>
+										<td class="text-center">gid</td>
+										<td class="text-center">1</td>
+										<td class="text-center">POST</td>
+										<td class="text-center">是</td>
+										<td class="text-center">通过获取商品列表返回</td>
+									</tr>
+									<tr>
+										<td class="text-center">User-Agent</td>
+										<td class="text-center">ua</td>
+										<td class="text-center">0</td>
+										<td class="text-center">POST</td>
+										<td class="text-center">否</td>
+										<td class="text-center">用于返回支付源码类型，0=pc(电脑扫码),1=H5(手机唤起)</td>
+									</tr>
+									<tr>
+										<td class="text-center">时间戳</td>
+										<td class="text-center">t</td>
+										<td class="text-center">1582266964</td>
+										<td class="text-center">POST</td>
+										<td class="text-center">否</td>
+										<td class="text-center">如果开启了《<span class="text-primary">时间差校验</span>》就必须传入客户端时间戳</td>
+									</tr>
+									<tr>
+										<td class="text-center">数据签名</td>
+										<td class="text-center">sign</td>
+										<td class="text-center">16d1b8c03072c8c7c5ecb51e157b059a</td>
+										<td class="text-center">POST</td>
+										<td class="text-center">否</td>
+										<td class="text-center">如果开启了《<a href="#sign">数据签名</a>》就必须传入签名数据</td>
+									</tr>
+									
+								</tbody>
+							</table>
+						</div> <!-- end table-responsive-->
+						<p>返回结果：</p>
+						<div class="note-editor note-frame card codeview">
+							<div class="note-editing-area">
+<textarea class="note-codable" role="textbox" aria-multiline="true" rows="12">
+<!DOCTYPEhtmlPUBLIC"-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><metahttp-equiv="Content-Type"content="text/html; charset=utf-8"><title>正在为您跳转到支付页面，请稍候...</title><styletype="text/css">body
+{
+	margin:	0;padding:	0;
+}p
+{
+	position:	absolute;left:	50%;top:	50%;width:	330px;height:	30px;margin:	-35px00-160px;padding:	20px;font:	bold14px/30px"宋体",
+	Arial;background:	#f9fafcurl(./assets/images/load.gif)no-repeat20px26px;text-indent:	22px;border:	1pxsolid#c5d0dc;
+}#waiting
+{
+	font-family:	Arial;
+}</style><script>functionopen_without_referrer(link)
+{
+	document.body.appendChild(document.createElement('iframe')).src='javascript:	"<script>top.location.replace(\''+link+'\')<\/script>"';
+}</script></head><body><formid='alipaysubmit'name='alipaysubmit'action='https://mapi.alipay.com/gateway.do?_input_charset=utf-8'method='get'><inputtype='hidden'name='_input_charset'value='utf-8'/><inputtype='hidden'name='notify_url'value='https:	//pay.muitc.com/submit/alipay/alipay_notify.php'/><inputtype='hidden'name='out_trade_no'value='2020022221501880094'/><inputtype='hidden'name='partner'value='2088531505125737'/><inputtype='hidden'name='payment_type'value='1'/><inputtype='hidden'name='return_url'value='https:	//pay.muitc.com/submit/alipay/alipay_return.php'/><inputtype='hidden'name='seller_id'value='2088531505125737'/><inputtype='hidden'name='service'value='create_direct_pay_by_user'/><inputtype='hidden'name='subject'value='投诉QQ:860000220
+[
+	会员一天
+]'/><inputtype='hidden'name='total_fee'value='1.00'/><inputtype='hidden'name='sign'value='0ac621233b31051ce8923d2938f450e1'/><inputtype='hidden'name='sign_type'value='MD5'/><inputtype='submit'value='正在跳转'></form><script>document.forms
+[
+	'alipaysubmit'
+].submit();</script><p>正在为您跳转到支付页面，请稍候...</p></body></html></textarea>
+							</div>
+						</div>
+					</div>
+				</div> <!-- end /.text-center-->
+			</div> <!-- end col -->
+		</div>
+		<!-- end row -->
+	</div>
+	<!-- end container -->
+</div><!-- end page -->

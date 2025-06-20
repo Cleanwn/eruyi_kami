@@ -1,0 +1,30 @@
+<div class="mt-1 mb-2">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h2 id="sign">[示例]Sign签名计算方式</h2>
+						
+						<p>已注册普通注册为例：</p>
+						<div class="note-editor note-frame card codeview">
+							<div class="note-editing-area">
+<textarea class="note-codable" role="textbox" aria-multiline="true" rows="2">
+Sign = 取MD5值("user=" + 编辑框_user.内容 + "&password=" + 编辑框_mima.内容 + "&inv=" + 编辑框_inv.内容 + "&markcode=" + 机器码 + "&t=" + 取现行时间戳(2) + "&" + APPKEY)
+</textarea>
+							</div>
+						</div>
+						<div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<strong>算法提示 - </strong> 不管是什么接口，只需要将所有post的数据进行拼接，然后 加上：&APPKEY 取MD5值即是Sign签名参数
+						</div>
+					</div>
+				</div> <!-- end /.text-center-->
+			</div> <!-- end col -->
+		</div>
+		<!-- end row -->
+	</div>
+	<!-- end container -->
+</div><!-- end page -->

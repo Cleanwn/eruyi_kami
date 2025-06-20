@@ -1,0 +1,77 @@
+<div class="mt-1 mb-2">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h2 id="pay_res">[API]查询支付结果</h2>
+						<p>URL地址：<?php echo WEB_URL;?>/api.php?act=pay_res</p>
+						<p>请求参数说明：</p>
+						<div class="table-responsive-sm">
+							<table class="table table-bordered table-centered">
+								<thead>
+									<tr>
+										<th class="text-center">字段名</th>
+										<th class="text-center">变量名</th>
+										<th class="text-center">示例值</th>
+										<th class="text-center">类型</th>
+										<th class="text-center">必填</th>
+										<th class="text-center">描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-center">应用</td>
+										<td class="text-center">app</td>
+										<td class="text-center">10000</td>
+										<td class="text-center">GET</td>
+										<td class="text-center">是</td>
+										<td class="text-center">应用ID必填参数，用于获取APP配置</td>
+									</tr>
+									<tr>
+										<td class="text-center">订单号</td>
+										<td class="text-center">oid</td>
+										<td class="text-center">20200222174624120</td>
+										<td class="text-center">POST</td>
+										<td class="text-center">是</td>
+										<td class="text-center">支付订单号</td>
+									</tr>
+									<tr>
+										<td class="text-center">时间戳</td>
+										<td class="text-center">t</td>
+										<td class="text-center">1582266964</td>
+										<td class="text-center">POST</td>
+										<td class="text-center">否</td>
+										<td class="text-center">如果开启了《<span class="text-primary">时间差校验</span>》就必须传入客户端时间戳</td>
+									</tr>
+									<tr>
+										<td class="text-center">数据签名</td>
+										<td class="text-center">sign</td>
+										<td class="text-center">16d1b8c03072c8c7c5ecb51e157b059a</td>
+										<td class="text-center">POST</td>
+										<td class="text-center">否</td>
+										<td class="text-center">如果开启了《<a href="#sign">数据签名</a>》就必须传入签名数据</td>
+									</tr>
+									
+								</tbody>
+							</table>
+						</div> <!-- end table-responsive-->
+						<p>返回结果：</p>
+						<div class="note-editor note-frame card codeview">
+							<div class="note-editing-area">
+<textarea class="note-codable" role="textbox" aria-multiline="true" rows="5">
+{
+    "code":200,
+    "msg":"成功",
+    "time":1582440801
+}</textarea>
+							</div>
+						</div>
+					</div>
+				</div> <!-- end /.text-center-->
+			</div> <!-- end col -->
+		</div>
+		<!-- end row -->
+	</div>
+	<!-- end container -->
+</div><!-- end page -->
